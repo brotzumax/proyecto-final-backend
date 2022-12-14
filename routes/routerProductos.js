@@ -51,6 +51,7 @@ function cargarProductos() {
 
 //Middlewares
 function productExist(req, res, next) {
+    cargarProductos();
     if (!productos.some(product => product.id === Number(req.params.id))) {
         res.json({ error: "Producto no encontrado" })
     } else {
