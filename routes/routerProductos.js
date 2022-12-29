@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
+import fs from 'fs';
 const { Router } = express;
-const fs = require('fs');
 const routerProductos = Router();
 
 let administrador = true;
@@ -108,4 +108,4 @@ routerProductos.delete("/:id", onlyAdministrator, productExist, (req, res) => {
     res.json({ status: "Producto eliminado" });
 });
 
-module.exports = { routerProductos };
+export const routerMemoriaProductos = routerProductos;

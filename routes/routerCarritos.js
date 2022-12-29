@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
+import fs from 'fs';
 const { Router } = express;
-const fs = require('fs');
 const routerCarritos = Router();
 
 let carritos = [];
@@ -112,4 +112,4 @@ routerCarritos.delete("/:id/productos/:id_prod", cartExist, (req, res) => {
     res.json({ status: `Producto id:${idProduct} eliminado` });
 });
 
-module.exports = { routerCarritos };
+export const routerArchivoCarritos = routerCarritos;
