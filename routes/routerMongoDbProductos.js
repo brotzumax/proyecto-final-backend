@@ -43,7 +43,7 @@ routerProductos.put("/:id", (req, res) => {
 
 routerProductos.delete("/:id", (req, res) => {
     const id = req.params.id;
-
+    mongoose.set('strictQuery', false);
     mongoose.connect("mongodb://localhost:27017/ecommerce", mongoConfig)
         .then(() => models.productos.deleteOne({ _id: id }))
         .then(() => res.json({ status: "Producto eliminado" }))
